@@ -1,0 +1,221 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>タグ機能のプラグイン — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-tags">quickstart-tags</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>タグ機能のプラグイン</h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-21
+    </span>
+  </div>
+  
+    <p>記事に分類用のタグを付ける機能、および同一タグの投稿一覧のページを生成する機能を追加します。</p>
+<h3>1. lektor-tagsプラグイン</h3>
+<p><code>lektor-tags</code>プラグインを導入します。</p>
+<pre><code class="lang-shell">$ lektor plugins add lektor-tags
+</code></pre>
+<h4>lektor-demo.lektorproject</h4>
+<pre><code class="lang-none">[packages]
+lektor-tags = 0.5.1
+</code></pre>
+<h3>2. プラグインの設定ファイル</h3>
+<p><code>lektor-tags</code>プラグインは、独自の設定ファイルを必要とします。プロジェクトのルートに、<code>configs</code>というディレクトリを作成し、その中に<code>tags.ini</code>という名のファイルを作成します。</p>
+<pre><code class="lang-none">|- configs/
+    |- tags.ini
+</code></pre>
+<h4>configs/tags.ini (作成)</h4>
+<pre><code class="lang-none">parent = /blog
+
+items = this.parent.children.filter(F.tags.contains(tag))
+url_path = {{ this.parent.url_path }}tag/{{ tag }}
+ignore_missing = true
+template = tag.html
+</code></pre>
+<h3>3. tagフィールドの作成</h3>
+<p><code>blog-post.ini</code>へ新たなフィールド<code>fields.tags</code>を追加します。<code>type</code>は複数行のテキストを定義する<code>strings</code>を指定します。同時に構成をシンプルにするため、著者名とツィッターハンドルのfields.authorとfields.tiwtterを削除します。</p>
+<h4>models/blog-post.ini (編集)</h4>
+<pre><code class="language-none">
+<del>[fields.author]</del>
+<del>label = Author</del>
+<del>type = string</del>
+<del>width = 1/2</del>
+
+<del>[fields.twitter_handle]</del>
+<del>label = Twitter Handle</del>
+<del>type = string</del>
+<del>width = 1/4</del>
+<del> = @</del>
+
+[fields.pub_date]
+label = Publication date
+type = date
+width = 1/4
+
+[fields.body]
+label = Body
+type = markdown
+
+<mark>[fields.tags]</mark>
+<mark>type = strings</mark>
+</code></pre><p>記事の編集画面を開くと、Bodyフールドの下にTagsフィールドが確認できます。サンプルとして、Tagsフィールドに、coffeeとteeを入力しました</p>
+<p><img src="./admin-view.jpg" style="max-width:380px;" /></p>
+<h3>4. 投稿メタ情報にタグ名とリンクを追加</h3>
+<p><code>macros/blog.html</code>のmetaクラスの記述を、tag名を表示するように書き換えて、AutherとTwitterの表示部分は削除します。</p>
+<h4>templates/macros/blog.html (編集)</h4>
+<pre><code class="language-markup">  &lt;div class=&quot;meta&quot;&gt;
+    &lt;ul&gt; 
+    {% if post.tags %}
+      {% if post.tags|length == 1 %}
+        &lt;li&gt;tag:&lt;/li&gt;
+      {% else %}
+        &lt;li&gt;tags:&lt;/li&gt;
+      {% endif %}
+      {% for t in post.tags %}
+        &lt;li&gt;
+          &lt;a href=&quot;{{ (&#39;/blog@tag/&#39; ~ t.lower() )|url }}&quot;&gt;{{ t }}&lt;/a&gt;
+        &lt;/li&gt;
+      {% endfor %}
+      &lt;/ul&gt;
+    {% endif %}
+    &lt;span&gt;
+      on {{ post.pub_date }}
+    &lt;/span&gt;
+  &lt;/div&gt;
+
+  <del>&lt;p class=&quot;meta&quot;&gt;</del>
+    <del>written by</del>
+    <del>{% if post.twitter_handle %}</del>
+      <del>&lt;a href=&quot;https://twitter.com/{{ post.twitter_handle }}&quot;&gt;{{ post.author or post.twitter_handle }}&lt;/a&gt;</del>
+    <del>{% else %}</del>
+      <del>{{ post.author }}</del>
+    <del>{% endif %}</del>
+    <del>on {{ post.pub_date }}</del>
+  <del>&lt;/p&gt;</del>
+</code></pre><p>変更したmetaクラスのスタイルを追加します。</p>
+<h4>assets/statics/custom.css (追記)</h4>
+<pre><code class="lang-css">/* tags */
+.meta  {
+  display: flex;
+  justify-content: start;
+}
+
+.meta ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.meta ul li {
+  display: inline;
+  margin: 0 2px 0 0;
+  padding: 0;
+}
+
+.meta span {
+  margin-left: 2px;
+}
+</code></pre>
+<p>投稿日付の左側にタグ名が表示されました。</p>
+<p><img src="./tags-view.jpg" style="max-width:380px;" /></p>
+<h3>5. Tagページの生成</h3>
+<p>タグ名のリンク先である、同一タグの投稿一覧を表示するページの、テンプレート<code>tag.html</code>を作成します。</p>
+<h4>templates/tag.html (作成)</h4>
+<pre><code class="lang-markup">{% extends &quot;layout.html&quot; %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+&lt;div class=&quot;tag-page&quot;&gt;
+  &lt;h2&gt;Tag: {{ this.tag }}&lt;/h2&gt;
+  &lt;ul&gt;
+    {% for i in this.items %}
+      &lt;li&gt;
+        &lt;span&gt;{{ i.pub_date.strftime(&#39;%Y-%m-%d&#39;) }}&lt;/span&gt;
+        &lt;a href=&quot;{{ i|url }}&quot;&gt;{{ i.title }}&lt;/a&gt;
+      &lt;/li&gt;
+    {% else %}
+      &lt;li&gt;&lt;em&gt;No items.&lt;/em&gt;&lt;/li&gt;
+    {% endfor %}
+  &lt;/ul&gt;
+&lt;/div&gt;
+{% endblock %}
+</code></pre>
+<p>スタイルを追加します。</p>
+<h4>assets/static/custom.css (追記)</h4>
+<pre><code class="lang-css">/* tag page */
+.tag-page ul {
+  list-style: none;
+}
+</code></pre>
+<p>タグ名のcoffleeのリンクをクリックすると、coffeeタグの投稿一覧ページに移動します。</p>
+<p><img src="./tagpage-view.jpg" style="max-width:380px;" /></p>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../quickstart-siblings/">Previous Post</a>
+    
+    
+        <a href="../quickstart-tagpage/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>

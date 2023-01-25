@@ -1,0 +1,212 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>インストールとQuickstart — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-install">quickstart-install</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>インストールとQuickstart</h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-15
+    </span>
+  </div>
+  
+    <p>Lektorはコマンドラインツールです。インストール要件は、環境にPython3.6以上が入っていることです。</p>
+<p>画像の最適化や動画のサムネイルにimagemagickとffmpegを利用しますが、その機能を利用するまで必要ありません。</p>
+<h3>1. pipxのインストール</h3>
+<p>Lektorは、python製コマンドラインツールのパッケージマネージャpipxでインストールします。</p>
+<p>環境ごとのpipxのインストール。</p>
+<h4>macOS</h4>
+<pre><code class="lang-shell">$ brew install pipx
+$ pipx ensurepath
+</code></pre>
+<h4>windows</h4>
+<pre><code class="lang-shell">$ python -m pip install --user pipx
+$ python -m pipx ensurepath
+</code></pre>
+<h3>2. Lektorのインストール</h3>
+<pre><code class="lang-shell">$ pipx install lektor
+</code></pre>
+<h3>3. Quickstart</h3>
+<p><code>quickstart</code>コマンドにより、対話形式でプロジェクトが作成されます。</p>
+<pre><code class="lang-shell">$ lektor qickstart
+</code></pre>
+<p>プロジェクト名は、lektor-demo とします。</p>
+<pre><code class="language-shell"  >Step 1: A project needs a name. 
+プロジェクトは名前が必要です。
+> Project Name: <mark>lektor-demo</mark> 
+
+Step 2: Your name. 
+あなたの名前は？
+> Author Name [<i>your name</i>] :  <mark>&#x23CE;</mark>
+
+Step 3: This is the path where the project will be located. 
+プロジェクトを配置するパス
+> Project Path [<i>current path</i>]:  <mark>&#x23CE;</mark>
+
+Step 4: Do you want to generate a basic blog module? 
+基本ブログモジュールを生成しますか？
+> Add Basic Blog [Y/n]: <mark>y</mark>
+
+That's all. Create project? [Y/n] <mark>y</mark>
+以上です。プロジェクトを作成しますか？
+</code></pre><h3>4. ローカルサーバを起動する</h3>
+<p>プロジェクトのディレクトリに入り、ローカルサーバを起動します。</p>
+<pre><code class="lang-shell">$ cd lektor-demo
+$ lektor serve
+</code></pre>
+<p>ブラウザのアドレスバーに <code>http://127.0.0.1:5000</code> を入力します。</p>
+<p><img src="welcome.jpg" alt="default"></p>
+<h3>5. ディレクトリ構成</h3>
+<h4>lektor-demo/</h4>
+<pre><code class="language-">|- assets/
+    |- static/
+        |- style.css
+|- content/
+    |- about/
+    |- blog/
+        |- first-post/
+            |- contents.lr
+        |- contents.lr
+    |- projects/
+    |- contents.lr
+|- models/
+    |- blog-post.ini
+    |- blog.ini
+    |- page.ini
+|- templates/
+    |- macros/
+        |- blog.html
+        |- pagination.html
+    |- blog-post.html
+    |- blog.html
+    |- layout.html
+    |- page.html
+lektor-demo.lektorproject
+</code></pre><h3>6. Usage</h3>
+<h4>lektorコマンドのオプション</h4>
+<pre><code>$ lektor --help
+
+Usage: lektor [OPTIONS] COMMAND [ARGS]...
+
+  The lektor management application.
+
+  This command can invoke lektor locally and serve up the website.  It's
+  intended for local development of websites.
+
+Options:
+  --project PATH   The path to the lektor project to work with.
+  --language TEXT  The UI language to use (overrides autodetection).
+  --version        Show the version and exit.
+  --help           Show this message and exit.
+
+Commands:
+  build              Builds the entire project into the final artifacts.
+  clean              Cleans the entire build folder.
+  content-file-info  Provides information for a set of lektor files.
+  deploy             Deploy the website.
+  dev                Development commands.
+  plugins            Manages plugins.
+  project-info       Shows the info about a project.
+  quickstart         Starts a new empty project.
+  server             Launch a local server.
+</code></pre>
+<h4>lektor serveコマンドのオプション</h4>
+<pre><code>$ lektor serve --help
+
+Usage: lektor serve [OPTIONS]
+
+  The server command will launch a local server for development.
+
+  Lektor's development server will automatically build all files into pages
+  similar to how the build command with the `--watch` switch works, but also
+  at the same time serve up the website on a local HTTP server.
+
+Options:
+  -h, --host TEXT         The network interface to bind to.  The default is
+                          the loopback device, but by setting it to 0.0.0.0 it
+                          becomes available on all network interfaces.
+  -p, --port INTEGER      The port to bind to.  [default: 5000]
+  -O, --output-path PATH  The dev server will build into the same folder as
+                          the build command by default.
+  --prune / --no-prune    Controls if old artifacts should be pruned.  "prune"
+                          is the default.
+  -v, --verbose           Increases the verbosity of the logging.
+  -f, --extra-flag TEXT   Defines an arbitrary flag.  These can be used by
+                          plugins to customize the build and deploy process.
+                          More information can be found in the documentation
+                          of affected plugins.
+  --build-flag TEXT       Deprecated. Use --extra-flag instead.
+  --browse
+  --help                  Show this message and exit.
+</code></pre>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../first-post/">Previous Post</a>
+    
+    
+        <a href="../quickstart-style/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>

@@ -1,0 +1,175 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>スタイルシートと配色 — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-style">quickstart-style</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>スタイルシートと配色</h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-17
+    </span>
+  </div>
+  
+    <p>Quickstartで生成されたスタイルシートを確認します。ミニマムな記述で、指定しているスタイルが少ないので、変更は全て別ファイルで上書きすることにします。</p>
+<h3>1. style.css</h3>
+<h4>assets/static/style.css (確認)</h4>
+<pre><code class="language-css">body {
+    font-family: 'Verdana', sans-serif;
+    margin: 50px 25px;
+}
+
+a {
+    color: <span style="background:#2a99b6;">&nbsp;</span> #2a99b6;
+}
+
+a:hover {
+    color: <span style="background:#33bbdf;">&nbsp;</span> #33bbdf;
+}
+
+header, footer, div.page {
+    width: 760px;
+    margin: 0 auto;
+    background: <span style="background:#daeef3;">&nbsp;</span> #daeef3;
+    padding: 20px 30px;
+}
+
+header h1 {
+    color: <span style="background:#169bbd;">&nbsp;</span> #169bbd;
+    margin: 0;
+    font-weight: normal;
+    font-size: 42px;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 8px 0 0;
+    padding: 0;
+}
+
+div.page {
+    background: <span style="background:#f1fbfe;">&nbsp;</span> #f1fbfe;
+}
+</code></pre><h3>2. custom.cssの作成と配色の上書き</h3>
+<p>デフォルトの配色は日本語のWebページと相性がよくありません。いったんグレイスケールの色を上書きします。</p>
+<h4>assets/static/custom.css (作成)</h4>
+<pre><code class="language-css">:root {
+  --gray-1:<span style="background:#f9faf9;">&nbsp;</span> #f9faf9;
+  --gray-2:<span style="background:#dadedc;">&nbsp;</span> #dadedc;
+  --gray-3:<span style="background:#bcc2bf;">&nbsp;</span> #bcc2bf;
+  --gray-4:<span style="background:#9da6a2;">&nbsp;</span> #9da6a2;
+  --gray-5:<span style="background:#7e8a85;">&nbsp;</span> #7e8a85;
+  --gray-6:<span style="background:#626c68;">&nbsp;</span> #626c68;
+  --gray-7:<span style="background:#464d4a;">&nbsp;</span> #464d4a;
+  --gray-8:<span style="background:#2a2e2d;">&nbsp;</span> #2a2e2d;
+  --gray-9:<span style="background:#0e100f;">&nbsp;</span> #0e100f;
+
+  /* monochrome */
+  --primarycolor: var(--gray-3);
+  --secondarycolor: var(--gray-9);
+  --linkcolor: var(--gray-8);
+  --hovercolor: var(--gray-6);
+  --page-backgroundcolor: var(--gray-1);
+}
+
+/* override colors */
+a {
+  color: var(--linkcolor);
+}
+
+a:hover {
+  color: var(--hovercolor);
+}
+
+header, footer, div.page {
+  background: var(--primarycolor);
+}
+
+header h1 {
+  color: var(--secondarycolor);
+}
+
+div.page {
+  background: var(--page-backgroundcolor);
+}
+</code></pre><h4>templates/layout.html (追記)</h4>
+<pre><code class="language-markup">&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;style.css&#039;|url }}&quot;&gt;
+<mark>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;custom.css&#039;|url }}&quot;&gt;</mark>
+</code></pre><p><img src="monochrome-view.jpg" alt=""></p>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../quickstart-install/">Previous Post</a>
+    
+    
+        <a href="../quickstart-responsive/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>

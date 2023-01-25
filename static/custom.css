@@ -1,0 +1,232 @@
+:root {
+  --gray-1:  #f9faf9;
+  --gray-2:  #dadedc;
+  --gray-3:  #bcc2bf;
+  --gray-4:  #9da6a2;
+  --gray-5:  #7e8a85;
+  --gray-6:  #626c68;
+  --gray-7:  #464d4a;
+  --gray-8:  #2a2e2d;
+  --gray-9:  #0e100f;
+
+  /* monochrome */
+  --primarycolor: var(--gray-3);
+  --secondarycolor: var(--gray-9);
+  --linkcolor: var(--gray-8);
+  --hovercolor: var(--gray-6);
+  --page-backgroundcolor: var(--gray-1);
+
+  /* Cadetblue */
+  --primarycolor:  #7fb1b2;
+  --secondarycolor:  #1b2c3f;
+  --linkcolor:  #213040;
+  --hovercolor:  #283d55;
+  --nenu-active-color:  #030b0b;
+  --page-backgroundcolor:  #fbfdfd;
+
+  /* Bluegray*/   
+  --primarycolor:  #B0BEC5;
+  --secondarycolor:  #373d59;
+  --linkcolor:  #413f5c;
+  --hovercolor:  #504c77;
+  --nenu-active-color:  #071116;
+  --page-backgroundcolor:  #fbfcfd;
+
+}
+
+h2 a, h3 a, h4 a, h5 a, h6 a {
+  text-decoration: none;
+  color: var(--gray-8);
+}
+
+h2 a:hover, h3:hover a:hover, h4 a:hover, h5 a:hover, h6 a:hover{
+  text-decoration: none;
+  color: var(--gray-6);
+}
+
+header .active a {
+  color: var(--nenu-active-color);
+}
+
+.disabled {
+  color: var(--gray-3);
+}
+
+/* override colors */
+a {
+  color: var(--linkcolor);
+}
+
+a:hover {
+  color: var(--hovercolor);
+}
+
+header, footer, div.page {
+  background: var(--primarycolor);
+}
+
+header h1 {
+  color: var(--secondarycolor);
+}
+
+div.page {
+  background: var(--page-backgroundcolor);
+}
+
+/* override font */
+body {
+  font-family: var(--font-body);
+}
+
+header h1 {
+  line-height: 1.5;
+  font-weight: 500;
+  font-size: var(--fontsize-1);
+}
+
+header nav ul {
+  font-family: var(--font-verdana);
+}
+
+/* welcome page */
+.welcome-page a {
+  color: var(--gray-9);
+}
+
+.welcome-page a:hover {
+  color: var(--gray-7);
+}
+
+.welcome-page ol {
+  list-style-type: upper-roman;
+}
+
+.welcome-page ol ol {
+  list-style-type: decimal;
+}
+
+.welcome-page ul {
+  list-style-type: none;
+  padding: 0 0 0 1rem;
+}
+
+.welcome-page ul li {
+  margin: .5rem 0;
+}
+
+
+p code, ul code, ol code {
+  border: solid 1px var(--code-border-green);
+  background: var(--code-background-green);
+}
+
+/* previous page and next page */
+.siblings {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--spacing-2);
+}
+
+/* tags */
+.tag-page ul {
+  list-style: none;
+}
+
+.meta  {
+  display: flex;
+  justify-content: start;
+}
+
+.meta ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.meta ul li {
+  display: inline;
+  margin: 0 2px 0 0;
+  padding: 0;
+}
+
+.meta span {
+  margin-left: 2px;
+}
+
+/* layout adjustment */
+div.page h2:first-child {
+  margin-top: var(--spacing-2);
+}
+
+.meta {
+  line-height: 1;
+}
+
+header h3 {
+  margin-top: .375rem;
+  margin-bottom: .5rem;
+  color: var(--secondarycolor);
+}
+
+/* highlighter */
+.hll pre {
+  line-height: 1.25;
+  font-family: var(--font-code);  /* 日本語コメントの字幅を小さくするためsytem-uiを入れてます。*/
+  background: #f8f8f8;
+}
+
+/* prism */
+code[class*=language-] {
+  font-family: var(--font-code);
+}
+
+pre[class*=language-] {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  background: #f8f8f8;
+}
+
+mark {
+  background: rgba(0,255,128,.1);
+  padding: 0 .2rem;
+}
+
+p code {
+  background: var(--gray-2);
+}
+
+/* contents */
+img {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 30px; /* max width 700px */
+  width: 100%;
+}
+
+@media screen and (max-width: 580px) {
+  img {
+    padding: 0.5rem;
+}
+}
+
+/* responsive */
+
+header, footer, div.page {
+  width: initial;
+  max-width: 760px;
+}
+
+@media screen and (max-width: 580px) {
+  html {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  body {
+    margin: 2px;
+  }
+  header, footer, div.page {
+    padding: 1rem;
+  }
+}

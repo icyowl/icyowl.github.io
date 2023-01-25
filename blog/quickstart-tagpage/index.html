@@ -1,0 +1,123 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>タグ一覧ページ — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-tagpage">quickstart-tagpage</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>タグ一覧ページ</h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-21
+    </span>
+  </div>
+  
+    <p>タグの一覧を表示するページを作成します。タグに対する記事が数も表示します。</p>
+<h4>templates/tags.html (作成)</h4>
+<pre><code class="lang-markup">{% extends &quot;layout.html&quot; %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+  &lt;div class=&quot;tag-page&quot;&gt;
+    &lt;h2&gt;{{ this.title }}&lt;/h2&gt;
+    &lt;ul&gt;
+      {% if tagweights() %}
+        {% for tag, weight in (tagweights() | dictsort(by=&#39;value&#39;, reverse=true)) %}
+          &lt;li&gt;&lt;a href=&quot;{{ (&#39;/blog@tag/&#39; ~ tag ) | url }}&quot;&gt;{{ tag }}  ({{ weight.count }})&lt;/a&gt;&lt;/li&gt;
+        {% endfor %}
+      {% else %}
+        &lt;li&gt;No tags.&lt;/li&gt;
+      {% endif %}
+    &lt;/ul&gt;
+  &lt;/div&gt;
+{% endblock %}
+</code></pre>
+<p>nkmk</p>
+<pre><code class="lang-none">|- content/
+    |- tags/
+        |- contents.lr
+</code></pre>
+<h4>content/tags/contents.lr (作成)</h4>
+<pre><code class="lang-none">title: Tags
+---
+_template: tags.html
+</code></pre>
+<h4>templates/layout.html</h4>
+<pre><code class="language-markup">&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+  &lt;li{% if this._path == &#039;&#x2f;&#039; %} class=&quot;active&quot;{% endif
+    %}&gt;&lt;a href=&quot;{{ &#039;&#x2f;&#039;|url }}&quot;&gt;Welcome&lt;&#x2f;a&gt;&lt;&#x2f;li&gt;
+  {% for href, title in [
+    [&#039;&#x2f;blog&#039;, &#039;Blog&#039;],
+    <del>[&#039;&#x2f;projects&#039;, &#039;Projects&#039;],</del>
+    <mark>[&#039;&#x2f;tags&#039;, &#039;Tags&#039;],</mark>
+    [&#039;&#x2f;about&#039;, &#039;About&#039;]
+  ] %}
+</code></pre><p><img src="./tagpage-view.jpg" style="max-width:380px;" /></p>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../quickstart-tags/">Previous Post</a>
+    
+    
+        <a href="../quickstart-picture/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>

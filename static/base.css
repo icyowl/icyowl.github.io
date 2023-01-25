@@ -1,0 +1,127 @@
+:root {
+  --font-heading: "Noto Sans JP", sans-serif;
+  --font-verdana: Verdana, sans-serif;
+  --font-body: -apple-system, "Helvetica Neue", "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic Pro", "Yu Gothic Medium", "YU Gothic", "Meiryo", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  --font-code: Inconsolata, Monaco, Consolas, "Courier New", Courier, system-ui, monospace;
+  --gray:  #bcc2bf;  /* --gray-3 */
+
+  --fontsize-root: 16px;
+
+  /* 2rem 1.5rem 1.25rem 1rem 0.875rem 0.75rem */
+  --fontsize-1: calc(.125rem * 16); 
+  --fontsize-2: calc(.125rem * 11);
+  --fontsize-3: calc(.125rem * 9);
+  --fontsize-4: calc(.125rem * 8);
+  --fontsize-5: calc(.125rem * 7);
+  --fontsize-6: calc(.125rem * 6);
+
+  --spacing-1: .5rem;
+  --spacing-2: calc(.5rem * 2);
+  --spacing-3: calc(.5rem * 3);
+  --spacing-4: calc(.5rem * 4);
+  --spacing-5: calc(.5rem * 5);
+  --spacing-6: calc(.5rem * 6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--fontsize-root);
+  line-height: 1.75;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {font-size: var(--fontsize-1);}
+h2 {font-size: var(--fontsize-2);}
+h3 {font-size: var(--fontsize-3);}
+h4 {font-size: var(--fontsize-4);}
+h5 {font-size: var(--fontsize-5);}
+h6 {font-size: var(--fontsize-6);}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-2);
+}
+
+a {
+  color: inherit;
+}
+
+hr {
+  background: var(--gray);
+  height: 1px;
+  border: 0;
+}
+
+ul, ol {
+  padding: 0 0 0 var(--spacing-4);
+  margin: var(--spacing-1) 0;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+ul ul {
+  list-style-type: disc;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  padding: 0 0 0 var(--spacing-2);
+}
+
+blockquote {
+  border-left: var(--spacing-1) solid var(--gray);
+  margin-left: 0;
+  padding: 0 0 0 var(--spacing-1);
+}
+
+code {
+  font-family: var(--font-code);
+  font-size: 0.875rem;
+}
+
+p code {
+  border: solid 1px var(--gray);
+  border-radius: 2px;
+  padding: 1px 4px;
+}
+
+pre {
+  line-height: 1.125;
+  border: solid 1px var(--gray);
+  border-radius: 4px;
+  margin: var(--spacing-2) 0;
+  padding: var(--spacing-2);
+  overflow-x: scroll;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid var(--gray);
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  padding: 0 var(--spacing-1);
+}
