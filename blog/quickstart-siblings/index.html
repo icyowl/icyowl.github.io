@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../static/style.css">
 <link rel="stylesheet" href="../../static/prism.css">
 <link rel="stylesheet" href="../../static/custom.css">
-<title>ページの移動 — lektor-demo-1</title>
+<title>前後ページへの移動 — lektor-demo-1</title>
 <body>
   <header>
     <h1>朗読者の記憶</h1>
@@ -39,7 +39,8 @@
   
   <div class="blog-post">
   
-    <h2>ページの移動</h2>
+    <h2>前後ページへの移動</h2>
+    <hr />
   
   <div class="meta">
     <ul> 
@@ -61,7 +62,7 @@
     </span>
   </div>
   
-    <p>記事のページの中で、前の記事や後の記事へ移動ができるように、ページ下へリンクを追加します。</p>
+    <p>記事のページの中で、前の記事や後の記事へ移動ができるように、メソッド<code>get_siblings()</code>を利用してページ下にリンクを追加します。</p>
 <h3>1. get_siblings()</h3>
 <p>これには、ページオブジェクトが持つメソッド<a href="https://www.getlektor.com/docs/api/db/record/get_siblings/"><code>get_siblings()</code></a>を利用します。まずはtemplates/macors/へ新規にファイルを作成し、以下の内容を記述します。</p>
 <h4>templates/macros/siblings.html (作成)</h4>

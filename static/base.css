@@ -95,7 +95,7 @@ code {
 }
 
 p code {
-  border: solid 1px var(--gray);
+  /* border: solid 1px var(--gray); */
   border-radius: 2px;
   padding: 1px 4px;
 }
