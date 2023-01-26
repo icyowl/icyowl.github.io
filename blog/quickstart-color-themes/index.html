@@ -1,0 +1,134 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>カラーテーマの作成 — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-color-themes">quickstart-color-themes</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>カラーテーマの作成</h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-20
+    </span>
+  </div>
+  
+    <p>基本的なスタイルやレイアウトを決定したので、カラーの配色を決めて、いくつかテーマを作ることにします。</p>
+<h3>1. activeとdisabled</h3>
+<p>templatesのソースの中に、<code>style.css</code>で色の指定がないクラス<code>.active</code>と<code>.disabled</code>があるので、その指定箇所を確認します。</p>
+<h4>templates/layout.html</h4>
+<pre><code class="language-markup">&lt;nav&gt;
+  &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+    &lt;li{% if this._path == &#039;&#x2f;&#039; %} <mark>class=&quot;active&quot;</mark>{% endif
+      %}&gt;&lt;a href=&quot;{{ &#039;&#x2f;&#039;|url }}&quot;&gt;Welcome&lt;&#x2f;a&gt;&lt;&#x2f;li&gt;
+</code></pre><h4>templates/macros/pagination.html</h4>
+<pre><code class="language-markup">{% macro render_pagination(pagination) %}
+  &lt;div class=&quot;pagination&quot;&gt;
+    {% if pagination.has_prev %}
+      &lt;a href=&quot;{{ pagination.prev|url }}&quot;&gt;&amp;laquo; Previous&lt;&#x2f;a&gt;
+    {% else %}
+      &lt;span <mark>class=&quot;disabled&quot;</mark>&gt;&amp;laquo; Previous&lt;&#x2f;span&gt;
+    {% endif %}
+</code></pre><p><code>.active</code>はヘッダーで選択したメニューを強調するものです。<code>.active</code>のカラーは<code>--nenu-active-color</code>という変数に割り当てることにします。</p>
+<p><code>.disabled</code>は記事一覧のページネーションで記事が無い場合にグレーアウトするものです。これに、<code>--gray-3</code>の色を割りあてます。</p>
+<h3>2. カラーテーマの作成</h3>
+<p>ここでは、CadetblueとBluegrayという２つのカラーテーマを作りました。</p>
+<h4>assets/static/custom.css (追記)</h4>
+<pre><code class="language-css">:root {
+  /* 省略 */
+
+  /* Cadetblue */
+  --primarycolor: <span style="background:#7fb1b2;">&nbsp;</span>#7fb1b2;
+  --secondarycolor: <span style="background:#1b2c3f;">&nbsp;</span>#1b2c3f;
+  --linkcolor: <span style="background:#213040;">&nbsp;</span>#213040;
+  --hovercolor: <span style="background:#283d55;">&nbsp;</span>#283d55;
+  --nenu-active-color: <span style="background:#030b0b;">&nbsp;</span>#030b0b;
+  --page-backgroundcolor: <span style="background:#fbfdfd;">&nbsp;</span>#fbfdfd;
+
+  /* Bluegray*/   
+  --primarycolor: <span style="background:#B0BEC5;">&nbsp;</span>#B0BEC5;
+  --secondarycolor: <span style="background:#373d59;">&nbsp;</span>#373d59;
+  --linkcolor: <span style="background:#413f5c;">&nbsp;</span>#413f5c;
+  --hovercolor: <span style="background:#504c77;">&nbsp;</span>#504c77;
+  --nenu-active-color: <span style="background:#071116;">&nbsp;</span>#071116;
+  --page-backgroundcolor: <span style="background:#fbfcfd;">&nbsp;</span>#fbfcfd;
+}
+
+header .active a {
+  color: var(--nenu-active-color);
+}
+
+.disabled {
+  color: var(--gray-3);
+}
+</code></pre><p>カラーテーマの選択は、使う方のカラー変数を変数宣言の一番下に置くか、あるいは使わない方のカラー変数をコメントアウトして行います。</p>
+<h4 style="text-align:center">* Cadetblue Theme *</h4><p><img src="cadetblue.jpg" style="max-width:380px" /></p>
+<h4 style="text-align:center">* Bluegray Theme *</h4><p><img src="bluegray.jpg" style="max-width:380px" /></p>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../quickstart-excerpt/">Previous Post</a>
+    
+    
+        <a href="../quickstart-siblings/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>

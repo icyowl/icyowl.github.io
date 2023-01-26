@@ -1,0 +1,120 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>レスポンシブ — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-responsive">quickstart-responsive</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>レスポンシブ</h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-17
+    </span>
+  </div>
+  
+    <p>タイポグラフィの検討やHtml要素のスタイルを書く前に、メディアクエリを入れてレスポンシブ対応のコードを書きます。</p>
+<h3>1. メディアクエリ</h3>
+<p><code>style.css</code>では、 header, footer, pageの幅が<code>width:760px</code>に固定されているので、 <code>max-widht:760px</code>に変更します。</p>
+<p>ブレークポイントでの変更点は次の通りです。</p>
+<ul>
+<li>root font size 16px -&gt; 14px</li>
+<li>root line-hight 1.75 -&gt; 1.5</li>
+<li>body margin: 0 -&gt; 2px</li>
+<li>header, footer, page { padding: 20px 30px } -&gt;  padding: 1rem</li>
+</ul>
+<h4>assets/static/custom.css (追記)</h4>
+<pre><code class="lang-css">/* responsive */
+header, footer, div.page {
+  width: initial;
+  max-width: 760px;
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  body {
+    margin: 2px;
+  }
+  header, footer, div.page {
+    padding: 1rem;
+  }
+}
+</code></pre>
+<h3>2. Viewport</h3>
+<h4>templates/layout.html  (追記)</h4>
+<pre><code class="language-markup">&lt;meta charset=&quot;utf-8&quot;&gt;
+<mark>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</mark>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;style.css&#039;|url }}&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;custom.css&#039;|url }}&quot;&gt;
+</code></pre><p><img src="./mobile-view.jpg" style="max-width:380px;" /></p>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../quickstart-style/">Previous Post</a>
+    
+    
+        <a href="../quickstart-japanese/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>

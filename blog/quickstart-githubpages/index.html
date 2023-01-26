@@ -1,0 +1,108 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>Github Pagesで公開 — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-githubpages">quickstart-githubpages</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>Github Pagesで公開</h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-23
+    </span>
+  </div>
+  
+    <p>Lektorで生成される静的サイトは、多くのホスティングサービスが利用可能ですが、ここではGithub Pagesへのホスティング方法を説明します。</p>
+<p>Githubへのユーザ登録は終了している前提です。Github Pagesでは２通りのURLのウェブページを作成できます。</p>
+<ul>
+<li><a href="https://ユーザー名.github.io">https://ユーザー名.github.io</a></li>
+<li><a href="https://ユーザー名.github.io/リポジトリ名">https://ユーザー名.github.io/リポジトリ名</a></li>
+</ul>
+<h3>1. <a href="https://ユーザー名.github.io">https://ユーザー名.github.io</a></h3>
+<h4>a) Githubの管理画面</h4>
+<p>ブラウザでGithubの管理画面へ行きます。Repositoriesの画面でレポジトリの作成(New)を選択し、「Repository name」に、<code>ユーザー名.github.io</code>を入力します。「Add a README file」へチェックを入れ、下の方へスクロールして「Create repository」をクリックして作業を完了させます。</p>
+<p>Lektorのデプロイ機能は、Masterブランチを対象にするので、defaultのブランチ名がMainの場合は、「branch」ボタンから鉛筆マークをクリックして、Masterにリネームします。</p>
+<h4>b) Lektor側の作業</h4>
+<p>ルートの設定ファイル<code>**.lektorproject</code>へ下記の記述をします。</p>
+<h4>lektor-demo.lektorproject</h4>
+<pre><code class="lang-none">[servers.ghpages]
+target = ghpages://ユーザー名/ユーザー名.github.io
+</code></pre>
+<p>デプロイはLektorの管理画面の右上のアップロードマークをクリックするか、プロジェクトのディレクトリで<code>lektor deploy</code>コマンドを実行します。</p>
+<pre><code class="lang-shell">$ lektor deploy
+</code></pre>
+<h3>2. ユーザ名.github.io/レポジトリ名</h3>
+<pre><code class="lang-shell">$ git branch -m main master
+$ git fetch origin
+$ git branch -u origin/master master
+$ git remote set-head origin -a
+</code></pre>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../quickstart-highlighter/">Previous Post</a>
+    
+    
+        <a href="../quickstart-summary/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>
