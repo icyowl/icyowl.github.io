@@ -1,0 +1,118 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/base.css">
+<link rel="stylesheet" href="../../static/style.css">
+<link rel="stylesheet" href="../../static/prism.css">
+<link rel="stylesheet" href="../../static/custom.css">
+<title>シンタックスハイライター — lektor-demo-1</title>
+<body>
+  <header>
+    <h1>朗読者の記憶</h1>
+    <!-- <h3>Static Site CMS Lektor Blog</h3> -->
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a href="../../">Welcome</a></li>
+        
+          <li class="active"><a href="../">Blog</a></li>
+        
+          <li><a href="../../tags/">Tags</a></li>
+        
+          <li><a href="../../about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    <script src="../../static/js/prism.js" defer></script>
+    <!-- 
+      ><a href="/">Home</a>
+    
+      ><a href="/blog">blog</a>
+    
+      ><a href="/blog/quickstart-highlighter">quickstart-highlighter</a>
+     -->
+    
+  
+  <div class="blog-post">
+  
+    <h2>シンタックスハイライター</h2>
+    <hr />
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      <li>
+          <a href="../tag/lektor/">lektor</a>
+        </li>
+      <li>
+          <a href="../tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 23-01-22
+    </span>
+  </div>
+  
+    <p>コードブロックのシンタックスハイライターはプラグインで追加できます。プラグインmarkdown-highlighterはプロジェクトにpygmentsを導入します。</p>
+<h3>1. pygments</h3>
+<pre><code class="lang-shell">$ lektor plugins add markdown-highlighter
+</code></pre>
+<h4>lekor-demo.lektorconfig</h4>
+<pre><code class="lang-none">[packages]
+lektor-markdown-highlighter = 0.3.2
+</code></pre>
+<p>configsディレクトリにプラグインの設定ファイルを追加します。</p>
+<pre><code class="lang-none">|- configs/
+    |- markdown-highlighter.ini
+</code></pre>
+<p>設定ファイルではハイライターのテーマを指定します。</p>
+<h4>markdown-highlighter.ini (作成)</h4>
+<pre><code class="lang-ini">[pygments]
+style = tango
+</code></pre>
+<p>pygmentsのスタイルシートは、設定を上書きできるように、<code>custom.css</code>の上に記述します。</p>
+<h4>templates/layout.html (追記)</h4>
+<pre><code class="language-markup">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#39;/static/style.css&#39;|url }}&quot;&gt;
+<mark>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ get_pygments_stylesheet()|url }}&quot;&gt;</mark>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#39;/static/custom.css&#39;|url }}&quot;&gt;
+</code></pre><p>実は、現在のプラグインには何故か背景色のスタイルが当たっていません。ビルドされたスタイルシートにbackground colorの情報がありますが、それも間違っていることがあります。</p>
+<p>テーマの背景色を使うには、pygmentsの<a href="https://github.com/pygments/pygments/tree/master/pygments/styles">githubサイト</a>からbackground colorを探して、スタイルに追加する必要があります。</p>
+<p>pygmentsは、クラス<code>.hll</code>でコードブロックをラップしています。line-heightとfont-familyも上書きします。</p>
+<h4>assets/static/custom.css (追記)</h4>
+<pre><code class="lang-css">/* highlighter */
+.hll pre {
+  line-height: 1.25;
+  font-family: var(--font-code);  /* 日本語コメントの字幅を小さくするためsytem-uiを入れてます。*/
+  background: #f8f8f8;
+}
+</code></pre>
+<p><img src="./pygments-view.jpg" style="max-width:380px;" /></p>
+
+  
+  </div>
+
+  
+  <div class="siblings">
+    
+        <a href="../quickstart-picture/">Previous Post</a>
+    
+    
+        <a href="../quickstart-githubpages/">Next Post</a>
+    
+  </div>
+
+
+  </div>
+  <footer>
+    &copy; Copyright 2023 by Akira.
+  </footer>
+</body>
