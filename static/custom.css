@@ -170,12 +170,6 @@ hr {
   margin-bottom: -0.5rem;
 }
 
-header h3 {
-  margin-top: .375rem;
-  margin-bottom: .5rem;
-  color: var(--secondarycolor);
-}
-
 /* highlighter */
 .hll pre {
   line-height: 1.25;
