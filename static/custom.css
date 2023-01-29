@@ -213,7 +213,7 @@ img {
   width: 100%;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 580px) {
   img {
     padding: 0.5rem;
 }
@@ -226,7 +226,7 @@ header, footer, div.page {
   max-width: 760px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 580px) {
   html {
     font-size: 14px;
     line-height: 1.5;
