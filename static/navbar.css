@@ -23,6 +23,10 @@
   line-height: 3rem;
 }
 
+.navbar-area nav {
+  margin-right: 1rem;
+}
+
 .navbar-area nav ul a {
   text-decoration: none;
 }
@@ -67,13 +71,11 @@
 
   .navbar-area nav ul li {
     display: list-item;
-    margin: 0 1rem;
-    padding: 0;
+    margin: 0;
   }
 
   .navbar-area nav ul li a {
     font-weight: bold;
-    text-decoration: none;
   }
 
 }

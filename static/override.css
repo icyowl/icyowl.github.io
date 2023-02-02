@@ -115,11 +115,21 @@ header, footer, div.page {
     font-size: 98%;
     line-height: 1.6;
   }
+  header h1 {
+    font-size: 1.825rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+
   body {
     margin: 2px;
   }
   header, footer, div.page {
     padding: 1rem;
+  }
+  ul, ol {
+    padding: 0 0 0 1rem;
   }
   li {
     line-height: 1.6;
