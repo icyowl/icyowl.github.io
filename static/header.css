@@ -9,29 +9,9 @@ header {
   background: initial;
 }
 
-.navbar-area {
-  background: var(--gray-2);
-}
-
-.navbar {
-  max-width: 720px;
-  margin: 0 auto;
-  height: 3rem;
-}
-
-.navbar .logo {
-  font-family: var(--font-verdana);
-  font-weight: 500;
-  color: var(--gray-8);
-  margin-left: 1rem;
-}
-
-.navbar ul a {
-  text-decoration: none;
-}
 
 .header-text {
-  width: 720px;
+  max-width: 720px;
   margin: 0 auto;
   height: inherit;
 }
