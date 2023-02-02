@@ -1,26 +1,20 @@
 :root {
-  --font-heading: "Noto Sans JP", sans-serif;
-  --font-verdana: Verdana, sans-serif;
+
+  --font-heading: system-ui, sans-serlf;
   --font-body: -apple-system, "Helvetica Neue", "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic Pro", "Yu Gothic Medium", "YU Gothic", "Meiryo", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  --font-verdana: Verdana, sans-serif;
+  --font-nothing: "Nothing You Could Do", Verdana, sans-serif;
   --font-code: Inconsolata, Monaco, Consolas, "Courier New", Courier, system-ui, monospace;
-  --gray:  #bcc2bf;  /* --gray-3 */
+  --gray: hsl(0, 0%, 72%); /* --gray-3 */
 
   --fontsize-root: 16px;
 
-  /* 2rem 1.5rem 1.25rem 1rem 0.875rem 0.75rem */
-  --fontsize-1: calc(.125rem * 16); 
-  --fontsize-2: calc(.125rem * 11);
-  --fontsize-3: calc(.125rem * 9);
-  --fontsize-4: calc(.125rem * 8);
-  --fontsize-5: calc(.125rem * 7);
-  --fontsize-6: calc(.125rem * 6);
-
-  --spacing-1: .5rem;
-  --spacing-2: calc(.5rem * 2);
-  --spacing-3: calc(.5rem * 3);
-  --spacing-4: calc(.5rem * 4);
-  --spacing-5: calc(.5rem * 5);
-  --spacing-6: calc(.5rem * 6);
+  --fontsize-1: calc(.125rem * 16);    /* 2rem */
+  --fontsize-2: calc(.125rem * 11);   /* 1.375rem */
+  --fontsize-3: calc(.125rem * 9);   /* 1.125rem */
+  --fontsize-4: calc(.125rem * 8);    /* 1rem */
+  --fontsize-5: calc(.125rem * 7);    /* 0.875rem */
+  --fontsize-6: calc(.125rem * 6);    /* 0.75rem */
 }
 
 *,
@@ -36,6 +30,8 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
+  background: #fff;
 }
 
 h1 {font-size: var(--fontsize-1);}
@@ -49,10 +45,15 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   font-family: var(--font-heading);
   font-weight: 500;
-  margin-top: var(--spacing-3);
-  margin-bottom: var(--spacing-2);
+  margin: 1rem 0;
 }
 
+
+h3 {
+  margin-top: 1.5rem;
+}
+
+/* html elements */
 a {
   color: inherit;
 }
@@ -63,9 +64,14 @@ hr {
   border: 0;
 }
 
+
 ul, ol {
-  padding: 0 0 0 var(--spacing-4);
-  margin: var(--spacing-1) 0;
+  padding: 0 0 0 2rem;
+  margin: 0;
+}
+
+li {
+  line-height: 1.75;
 }
 
 ul {
@@ -80,13 +86,13 @@ ul ul,
 ol ol,
 ul ol,
 ol ul {
-  padding: 0 0 0 var(--spacing-2);
+  padding: 0 0 0 1rem;
 }
 
 blockquote {
-  border-left: var(--spacing-1) solid var(--gray);
+  border-left: 4px solid var(--gray);
   margin-left: 0;
-  padding: 0 0 0 var(--spacing-1);
+  padding: 0 0 0 .5rem;
 }
 
 code {
@@ -95,17 +101,17 @@ code {
 }
 
 p code {
-  /* border: solid 1px var(--gray); */
+  border: solid 1px var(--gray);
   border-radius: 2px;
   padding: 1px 4px;
 }
 
 pre {
-  line-height: 1.125;
+  line-height: 1.5;
   border: solid 1px var(--gray);
   border-radius: 4px;
-  margin: var(--spacing-2) 0;
-  padding: var(--spacing-2);
+  margin: 1rem 0;
+  padding: 1rem;
   overflow-x: scroll;
 }
 
@@ -123,5 +129,12 @@ th {
 }
 
 td {
-  padding: 0 var(--spacing-1);
+  padding: 0 .5rem;
+}
+
+img {
+  display: block;
+  border: none;
+  margin: 0 auto;
+  width: 100%;
 }

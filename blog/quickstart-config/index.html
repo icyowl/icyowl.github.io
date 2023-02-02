@@ -106,14 +106,14 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
       <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
     </svg>
-    <a href="/blog/quickstart-highlighter">quickstart-highlighter</a>
+    <a href="/blog/quickstart-config">quickstart-config</a>
   </div>
 
     
   
   <div class="blog-post">
   
-    <h2>シンタックスハイライター</h2>
+    <h2>設定ファイルとタイトル</h2>
     <hr />
   
   <div class="meta">
@@ -134,45 +134,23 @@
       </ul>
     
     <span>
-      on 2023-01-22 00:00:00
+      on 2023-01-17 23:00:00
     </span>
   </div>
   
-    <p>コードブロックのシンタックスハイライターはプラグインで追加できます。プラグインmarkdown-highlighterはプロジェクトにpygmentsを導入します。</p>
-<h3>1. pygments</h3>
-<pre><code class="lang-shell">$ lektor plugins add markdown-highlighter
-</code></pre>
-<h4>lekor-demo.lektorconfig</h4>
-<pre><code class="lang-none">[packages]
-lektor-markdown-highlighter = 0.3.2
-</code></pre>
-<p>configsディレクトリにプラグインの設定ファイルを追加します。</p>
-<pre><code class="lang-none">|- configs/
-    |- markdown-highlighter.ini
-</code></pre>
-<p>設定ファイルではハイライターのテーマを指定します。</p>
-<h4>markdown-highlighter.ini (作成)</h4>
-<pre><code class="lang-ini">[pygments]
-style = tango
-</code></pre>
-<p>pygmentsのスタイルシートは、設定を上書きできるように、<code>custom.css</code>の上に記述します。</p>
-<h4>templates/layout.html (追記)</h4>
-<pre><code class="language-markup">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#39;/static/override.css&#39;|url }}&quot;&gt;
-<mark>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ get_pygments_stylesheet()|url }}&quot;&gt;</mark>
-&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#39;/static/custom.css&#39;|url }}&quot;&gt;
-</code></pre><p>実は、現在のプラグインには何故か背景色のスタイルが当たっていません。ビルドされたスタイルシートにbackground colorの情報がありますが、それも間違っていることがあります。</p>
-<p>テーマの背景色を使うには、pygmentsの<a href="https://github.com/pygments/pygments/tree/master/pygments/styles">githubサイト</a>からbackground colorを探して、スタイルに追加する必要があります。</p>
-<p>pygmentsは、クラス<code>.hll</code>でコードブロックをラップしています。line-heightとfont-familyも上書きします。</p>
-<h4>assets/static/custom.css (追記)</h4>
-<pre><code class="lang-css">/* pygments */
-.hll pre {
-  line-height: 1.5;
-  font-size: 0.875rem;
-  font-family: var(--font-code);  /* 日本語コメントの字幅を小さくするためsytem-uiを入れてます。*/
-  background: #f8f8f8;
-}
-</code></pre>
-<p><img src="./pygments-view.jpg" style="max-width:380px;" /></p>
+    <p>プロジェクトのルートにある設定ファイル<code>lektor-demo.lektorconfig</code>は、プロジェクト全般に亘る設定値を管理します。</p>
+<h3>1. タイトルの変更</h3>
+<p>ヘッダーのタイトルに、設定ファイルへ記述された[project] nameに指定された文字列を表示できるように変更します。</p>
+<h4>lektor-demo.lektorconfig</h4>
+<pre><code class="language-none">[project]
+<del>name = lektor-demo</del>
+<mark>name = 日本語のTitle</mark>
+</code></pre><h4>templates/layout.html</h4>
+<pre><code class="language-markup">&lt;body&gt;
+  &lt;header&gt;
+    <del>&lt;h1&gt;lektor-demo&lt;/h1&gt;</del>
+    <mark>&lt;h1&gt;{{ config.PROJECT.name }}&lt;/h1&gt;</mark>
+</code></pre><p><img src="./title-view.jpg" style="max-width:380px;" /></p>
 
   
   </div>
@@ -180,10 +158,10 @@ style = tango
   
   <div class="siblings">
     
-        <a href="../quickstart-tagpage/">Previous Post</a>
+        <a href="../quickstart-responsive/">Previous Post</a>
     
     
-        <a href="../quickstart-picture/">Next Post</a>
+        <a href="../quickstart-japanese/">Next Post</a>
     
   </div>
 

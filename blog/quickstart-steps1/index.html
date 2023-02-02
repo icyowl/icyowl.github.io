@@ -106,14 +106,14 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
       <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
     </svg>
-    <a href="/blog/quickstart-highlighter">quickstart-highlighter</a>
+    <a href="/blog/quickstart-steps1">quickstart-steps1</a>
   </div>
 
     
   
   <div class="blog-post">
   
-    <h2>シンタックスハイライター</h2>
+    <h2>Step by Step 1 まとめ</h2>
     <hr />
   
   <div class="meta">
@@ -134,45 +134,22 @@
       </ul>
     
     <span>
-      on 2023-01-22 00:00:00
+      on 2023-01-20 23:00:00
     </span>
   </div>
   
-    <p>コードブロックのシンタックスハイライターはプラグインで追加できます。プラグインmarkdown-highlighterはプロジェクトにpygmentsを導入します。</p>
-<h3>1. pygments</h3>
-<pre><code class="lang-shell">$ lektor plugins add markdown-highlighter
-</code></pre>
-<h4>lekor-demo.lektorconfig</h4>
-<pre><code class="lang-none">[packages]
-lektor-markdown-highlighter = 0.3.2
-</code></pre>
-<p>configsディレクトリにプラグインの設定ファイルを追加します。</p>
-<pre><code class="lang-none">|- configs/
-    |- markdown-highlighter.ini
-</code></pre>
-<p>設定ファイルではハイライターのテーマを指定します。</p>
-<h4>markdown-highlighter.ini (作成)</h4>
-<pre><code class="lang-ini">[pygments]
-style = tango
-</code></pre>
-<p>pygmentsのスタイルシートは、設定を上書きできるように、<code>custom.css</code>の上に記述します。</p>
-<h4>templates/layout.html (追記)</h4>
-<pre><code class="language-markup">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#39;/static/override.css&#39;|url }}&quot;&gt;
-<mark>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ get_pygments_stylesheet()|url }}&quot;&gt;</mark>
-&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#39;/static/custom.css&#39;|url }}&quot;&gt;
-</code></pre><p>実は、現在のプラグインには何故か背景色のスタイルが当たっていません。ビルドされたスタイルシートにbackground colorの情報がありますが、それも間違っていることがあります。</p>
-<p>テーマの背景色を使うには、pygmentsの<a href="https://github.com/pygments/pygments/tree/master/pygments/styles">githubサイト</a>からbackground colorを探して、スタイルに追加する必要があります。</p>
-<p>pygmentsは、クラス<code>.hll</code>でコードブロックをラップしています。line-heightとfont-familyも上書きします。</p>
-<h4>assets/static/custom.css (追記)</h4>
-<pre><code class="lang-css">/* pygments */
-.hll pre {
-  line-height: 1.5;
-  font-size: 0.875rem;
-  font-family: var(--font-code);  /* 日本語コメントの字幅を小さくするためsytem-uiを入れてます。*/
-  background: #f8f8f8;
-}
-</code></pre>
-<p><img src="./pygments-view.jpg" style="max-width:380px;" /></p>
+    <p>Step by Stepの1の成果物は、日本語が使える最低限のブログサイトです。</p>
+<p>２つのスタイルシートを追加し、既存のファイルに僅かな変更を加えただけで、Step by Stepの手順を踏まなければ１分くらいの作業量です。SassやPostcssなどを導入するベースとしても利用できます。</p>
+<ul>
+<li>リセットや基本的なHtml要素を書いた<code>base.css</code>の作成</li>
+<li>デフォルトの<code>style.css</code>を上書きする<code>override.css</code>の作成</li>
+<li><code>laytout.html</code>のhead編集</li>
+<li>設定ファイル<code>.lektorconfig</code>と<code>layout.html</code>の<code>&lt;h1&gt;</code>(title)を編集</li>
+<li>プラグインの導入とテンプレート<code>blog.html</code>の編集</li>
+</ul>
+<h3>links</h3>
+<p>Github <a href="https://github.com/icyowl/lektor-demo/">https://github.com/icyowl/lektor-demo</a></p>
+<p>Demo Site <a href="https://berrygin.github.io/lektor-demo/">lektor-demo</a></p>
 
   
   </div>
@@ -180,10 +157,10 @@ style = tango
   
   <div class="siblings">
     
-        <a href="../quickstart-tagpage/">Previous Post</a>
+        <a href="../quickstart-color-themes/">Previous Post</a>
     
     
-        <a href="../quickstart-picture/">Next Post</a>
+        <a href="../quickstart-siblings/">Next Post</a>
     
   </div>
 

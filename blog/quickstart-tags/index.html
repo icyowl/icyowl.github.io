@@ -1,20 +1,48 @@
 <!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../../static/base.css">
+
 <link rel="stylesheet" href="../../static/style.css">
+
+<link rel="stylesheet" href="../../static/override.css">
+
 <link rel="stylesheet" href="../../static/prism.css">
+
 <link rel="stylesheet" href="../../static/custom.css">
-<title>タグ機能のプラグイン — lektor-blog</title>
+
+<link rel="stylesheet" href="../../static/navbar.css">
+
+<link rel="stylesheet" href="../../static/header.css">
+
+<link rel="stylesheet" href="../../static/welcome.css">
+
+<title>Welcome — lektor-memory</title>
 <body>
   <header>
-    <h1>朗読者の記憶</h1>
+    <div class="navbar-area">
+  <div class="navbar">
+    <div class="logo">Icyowl</div>
     <nav>
-      <ul class="nav navbar-nav">
-        <li><a href="../../">Welcome</a></li>
+      <ul id="menu" class="nav navbar-nav">
+        <li><a href="../../">Home</a></li>
         
           <li class="active"><a href="../">Blog</a></li>
         
@@ -24,21 +52,68 @@
         
       </ul>
     </nav>
+  
+    <svg id="burger-icon" class="w-6 h-6 burger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+      <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+    </svg>
+    
+  </div>
+</div>
+
+<script>
+  var target = document.querySelector(".burger")
+  var icon = document.getElementById("burger-icon");
+  var menu = document.getElementById("menu");
+
+  target.addEventListener("click", () => {
+    icon.classList.toggle("fade");
+    menu.classList.toggle("navbar-nav");
+    // console.log(icon);
+    // console.log(menu);
+
+  })
+</script>
+    <div class="header-image-area">
+  <div class="header-text">
+    <h1>朗読者の記憶</h1>
+    <h2>Static Site CMS Lektor</h2>
+  </div>
+</div>
+
+
+
+
+
+
   </header>
   <div class="page">
-    <script src="../../static/js/prism.js" defer></script>
-    <!-- 
-      ><a href="/">Home</a>
     
-      ><a href="/blog">blog</a>
-    
-      ><a href="/blog/quickstart-tags">quickstart-tags</a>
-     -->
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/">Home</a>
+  </div>
+
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/blog">blog</a>
+  </div>
+
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/blog/quickstart-tags">quickstart-tags</a>
+  </div>
+
     
   
   <div class="blog-post">
   
-    <h2>タグ機能のプラグイン</h2>
+    <h2>タグ機能の追加</h2>
     <hr />
   
   <div class="meta">
@@ -47,17 +122,19 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="../tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="../tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-21
+      on 2023-01-21 11:00:00
     </span>
   </div>
   
@@ -145,33 +222,7 @@ template = tag.html
     <del>{% endif %}</del>
     <del>on {{ post.pub_date }}</del>
   <del>&lt;/p&gt;</del>
-</code></pre><p>タグの表示に係わるスタイルを追加します。</p>
-<h4>assets/statics/custom.css (追記)</h4>
-<pre><code class="lang-css">/* tags */
-.meta  {
-  display: flex;
-  justify-content: start;
-}
-
-.meta ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.meta ul li {
-  display: inline;
-  margin: 0 2px 0 0;
-  padding: 0;
-}
-
-.meta span {
-  margin-left: 2px;
-}
-</code></pre>
-<p>投稿日付の左側にタグ名が表示されました。
-<img src="./tags-view.jpg" style="max-width:380px;" /></p>
-<h3>5. 投稿一覧ページの生成</h3>
+</code></pre><h3>5. 投稿一覧ページの生成</h3>
 <p>タグ名のリンク先に、タグの投稿一覧を表示するテンプレート<code>tag.html</code>を作成します。</p>
 <h4>templates/tag.html (作成)</h4>
 <pre><code class="lang-markup">{% extends &quot;layout.html&quot; %}
@@ -192,18 +243,40 @@ template = tag.html
 &lt;/div&gt;
 {% endblock %}
 </code></pre>
-<p>投稿一覧ページのスタイルを追加します。</p>
+<h3>6. スタイルの追加</h3>
+<p>タグに係わるスタイルを追加します。</p>
 <h4>assets/static/custom.css (追記)</h4>
-<pre><code class="lang-css">/* tag page */
+<pre><code class="lang-css">/* tags */
+.meta  {
+  display: flex;
+  justify-content: start;
+}
+
+.meta ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.meta ul li {
+  display: inline;
+  line-height: 1;
+  margin: 0 2px 0 0;
+  padding: 0;
+}
+
+.meta span {
+  margin-left: 2px;
+}
+
+/* tag page */
 .tag-page ul {
   list-style: none;
   margin-top: 1rem;
 }
-
-.tag-page ul li {
-  margin: .25rem 0;
-}
 </code></pre>
+<p>投稿日付の左側にタグ名が表示されました。</p>
+<p><img src="./tags-view.jpg" style="max-width:380px;" /></p>
 <p>タグ名のcoffleeのリンクをクリックすると、coffeeタグの投稿一覧ページに移動します。</p>
 <p><img src="./tagpage-view.jpg" style="max-width:380px;" /></p>
 
@@ -223,6 +296,8 @@ template = tag.html
 
   </div>
   <footer>
-    &copy; Copyright 2023 by Aki.
+    &copy; Copyright 2023 by Aki. 
+<a style="margin-left:0.25rem;" href="#">Tiwtter</a>
   </footer>
+  <script src="../../static/js/prism.js" defer></script>
 </body>

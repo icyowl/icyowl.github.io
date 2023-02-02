@@ -1,20 +1,48 @@
 <!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../../../static/base.css">
+
 <link rel="stylesheet" href="../../../static/style.css">
+
+<link rel="stylesheet" href="../../../static/override.css">
+
 <link rel="stylesheet" href="../../../static/prism.css">
+
 <link rel="stylesheet" href="../../../static/custom.css">
-<title> — lektor-blog</title>
+
+<link rel="stylesheet" href="../../../static/navbar.css">
+
+<link rel="stylesheet" href="../../../static/header.css">
+
+<link rel="stylesheet" href="../../../static/welcome.css">
+
+<title>Welcome — lektor-memory</title>
 <body>
   <header>
-    <h1>朗読者の記憶</h1>
+    <div class="navbar-area">
+  <div class="navbar">
+    <div class="logo">Icyowl</div>
     <nav>
-      <ul class="nav navbar-nav">
-        <li><a href="../../../">Welcome</a></li>
+      <ul id="menu" class="nav navbar-nav">
+        <li><a href="../../../">Home</a></li>
         
           <li class="active"><a href="../../">Blog</a></li>
         
@@ -24,21 +52,53 @@
         
       </ul>
     </nav>
+  
+    <svg id="burger-icon" class="w-6 h-6 burger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+      <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+    </svg>
+    
+  </div>
+</div>
+
+<script>
+  var target = document.querySelector(".burger")
+  var icon = document.getElementById("burger-icon");
+  var menu = document.getElementById("menu");
+
+  target.addEventListener("click", () => {
+    icon.classList.toggle("fade");
+    menu.classList.toggle("navbar-nav");
+    // console.log(icon);
+    // console.log(menu);
+
+  })
+</script>
+    <div class="header-image-area">
+  <div class="header-text">
+    <h1>朗読者の記憶</h1>
+    <h2>Static Site CMS Lektor</h2>
+  </div>
+</div>
+
+
+
+
+
+
   </header>
   <div class="page">
-    <script src="../../../static/js/prism.js" defer></script>
-    <!-- 
-      ><a href="/">Home</a>
-     -->
+    
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/">Home</a>
+  </div>
+
     
 <div class="tag-page">
   <h2>Tag: quickstart</h2>
   <ul>
-    
-      <li>
-        <span>2023-01-24</span>
-        <a href="../../quickstart-summary/">Step by Step のまとめ</a>
-      </li>
     
       <li>
         <span>2023-01-23</span>
@@ -62,7 +122,7 @@
     
       <li>
         <span>2023-01-21</span>
-        <a href="../../quickstart-tags/">タグ機能のプラグイン</a>
+        <a href="../../quickstart-tags/">タグ機能の追加</a>
       </li>
     
       <li>
@@ -72,7 +132,12 @@
     
       <li>
         <span>2023-01-20</span>
-        <a href="../../quickstart-color-themes/">カラーテーマの作成</a>
+        <a href="../../quickstart-steps1/">Step by Step 1 まとめ</a>
+      </li>
+    
+      <li>
+        <span>2023-01-20</span>
+        <a href="../../quickstart-color-themes/">カラーテーマ</a>
       </li>
     
       <li>
@@ -92,7 +157,12 @@
     
       <li>
         <span>2023-01-17</span>
-        <a href="../../quickstart-responsive/">レスポンシブ対応</a>
+        <a href="../../quickstart-config/">設定ファイルとタイトル</a>
+      </li>
+    
+      <li>
+        <span>2023-01-17</span>
+        <a href="../../quickstart-responsive/">レスポンシブ</a>
       </li>
     
       <li>
@@ -110,6 +180,8 @@
 
   </div>
   <footer>
-    &copy; Copyright 2023 by Aki.
+    &copy; Copyright 2023 by Aki. 
+<a style="margin-left:0.25rem;" href="#">Tiwtter</a>
   </footer>
+  <script src="../../../static/js/prism.js" defer></script>
 </body>

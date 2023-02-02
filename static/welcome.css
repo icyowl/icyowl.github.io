@@ -1,0 +1,24 @@
+.welcome-page a {
+  color: var(--gray-9);
+}
+
+.welcome-page a:hover {
+  color: var(--gray-7);
+}
+
+.welcome-page ol {
+  list-style-type: upper-roman;
+}
+
+.welcome-page ol ol {
+  list-style-type: decimal;
+}
+
+.welcome-page ul {
+  list-style-type: none;
+  padding: 0 0 0 1rem;
+}
+
+.welcome-page ul li {
+  margin: .5rem 0;
+}

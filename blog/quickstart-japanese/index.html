@@ -1,20 +1,48 @@
 <!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../../static/base.css">
+
 <link rel="stylesheet" href="../../static/style.css">
+
+<link rel="stylesheet" href="../../static/override.css">
+
 <link rel="stylesheet" href="../../static/prism.css">
+
 <link rel="stylesheet" href="../../static/custom.css">
-<title>日本語の表示 — lektor-blog</title>
+
+<link rel="stylesheet" href="../../static/navbar.css">
+
+<link rel="stylesheet" href="../../static/header.css">
+
+<link rel="stylesheet" href="../../static/welcome.css">
+
+<title>Welcome — lektor-memory</title>
 <body>
   <header>
-    <h1>朗読者の記憶</h1>
+    <div class="navbar-area">
+  <div class="navbar">
+    <div class="logo">Icyowl</div>
     <nav>
-      <ul class="nav navbar-nav">
-        <li><a href="../../">Welcome</a></li>
+      <ul id="menu" class="nav navbar-nav">
+        <li><a href="../../">Home</a></li>
         
           <li class="active"><a href="../">Blog</a></li>
         
@@ -24,16 +52,63 @@
         
       </ul>
     </nav>
+  
+    <svg id="burger-icon" class="w-6 h-6 burger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+      <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+    </svg>
+    
+  </div>
+</div>
+
+<script>
+  var target = document.querySelector(".burger")
+  var icon = document.getElementById("burger-icon");
+  var menu = document.getElementById("menu");
+
+  target.addEventListener("click", () => {
+    icon.classList.toggle("fade");
+    menu.classList.toggle("navbar-nav");
+    // console.log(icon);
+    // console.log(menu);
+
+  })
+</script>
+    <div class="header-image-area">
+  <div class="header-text">
+    <h1>朗読者の記憶</h1>
+    <h2>Static Site CMS Lektor</h2>
+  </div>
+</div>
+
+
+
+
+
+
   </header>
   <div class="page">
-    <script src="../../static/js/prism.js" defer></script>
-    <!-- 
-      ><a href="/">Home</a>
     
-      ><a href="/blog">blog</a>
-    
-      ><a href="/blog/quickstart-japanese">quickstart-japanese</a>
-     -->
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/">Home</a>
+  </div>
+
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/blog">blog</a>
+  </div>
+
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/blog/quickstart-japanese">quickstart-japanese</a>
+  </div>
+
     
   
   <div class="blog-post">
@@ -47,37 +122,39 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="../tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="../tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-18
+      on 2023-01-18 00:00:00
     </span>
   </div>
   
-    <p>Webページにおける日本語のタイポグラフィは、製作者によって方針が異なるようですが、一つの例として見て下さい。</p>
+    <p>Webページにおける日本語の表示は、製作者によって方針が異なりますが、一つの例として見て下さい。</p>
 <ul>
-<li>Heading要素のフォントは、Webフォントの<code>"Noto Sans JP"</code>、ウエイトは500</li>
-<li>bodyに指定するフォントは、一般的なデバイスフォント<ul>
-<li>Windows向けには、<code>"YU Gothic Medium"</code> を指定</li>
+<li>heading要素に指定するフォントは、system-ui</li>
+<li>bodyに指定する和文フォントは、Hragino Sans、Yu Gothic Medium<ul>
 <li>ヘッダーのメニューは英字のままで、<code>Verdana</code> を指定</li>
 </ul>
 </li>
-<li>ルートのline-heightは、PCでは1.75、モバイルでは1.5を指定</li>
+<li>htmlのline-heightは、1.75</li>
 </ul>
-<h3>1. base.cssを作成</h3>
-<p>基本的な文書要素のスタイルを記述するbase.cssを作成します。</p>
+<h3>1. base.cssの作成</h3>
+<p>新たに<code>base.css</code>を作成して、フォントとheading要素のスタイルを記述します。</p>
+<p>h3要素は文章中の小見出しに使い、上の段落との区切りを見せるため、<code>margin-top</code>を広めに取ります。</p>
 <h4>assets/static/base.css (作成）</h4>
-<pre><code class="language-css">:root {
-  --font-heading: "Noto Sans JP", sans-serif;
+<pre><code class="lang-css">:root {
+  --font-heading: system-ui, sans-serlf;
+  --font-body: -apple-system, &quot;Helvetica Neue&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Hiragino Sans&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, &quot;Yu Gothic Medium&quot;, &quot;YU Gothic&quot;, &quot;Meiryo&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Noto Color Emoji&quot;;
   --font-verdana: Verdana, sans-serif;
-  --font-body: -apple-system,  "Helvetica Neue", "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic Pro", "Yu Gothic Medium", "YU Gothic", "Meiryo", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
 
   --fontsize-root: 16px;
 
@@ -87,13 +164,6 @@
   --fontsize-4: calc(.125rem * 8);    /* 1rem */
   --fontsize-5: calc(.125rem * 7);    /* 0.875rem */
   --fontsize-6: calc(.125rem * 6);    /* 0.75rem */
-
-  --spacing-1: .5rem;
-  --spacing-2: calc(.5rem * 2);
-  --spacing-3: calc(.5rem * 3);
-  --spacing-4: calc(.5rem * 4);
-  --spacing-5: calc(.5rem * 5);
-  --spacing-6: calc(.5rem * 6);
 }
 
 *,
@@ -109,6 +179,8 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
+  background: #fff;
 }
 
 h1 {font-size: var(--fontsize-1);}
@@ -122,27 +194,25 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   font-family: var(--font-heading);
   font-weight: 500;
-  margin-top: var(--spacing-3);
-  margin-bottom: var(--spacing-2);
+  margin: 1rem 0;
 }
-</code></pre><h3>2. Google Font</h3>
-<p>googleの<a href="https://fonts.google.com/noto/specimen/Noto+Sans+JP">サイト</a>から、<code>Noto Sans JP</code>のウィイト500を選択してリンクをコピーします。</p>
-<h3>3. layout.htmlへリンクを記述</h3>
-<p>コピーしたGoogle Fontのリンクを<code>layout.html</code>のhead部分の<code>style.css</code>の上に貼り付けます。その下に<code>base.css</code>のリンクを記述します。</p>
-<h4>templates/layout.html</h4>
+
+h3 {
+  margin-top: 1.5rem;
+}
+</code></pre>
+<p><code>base.css</code>は、リセットCSSの役割も持たせているので、<code>style.css</code>の前に置きます。</p>
+<h4>templates/layout.html (追記)</h4>
 <pre><code class="language-markup">&lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-<mark>&lt;link rel=&quot;preconnect&quot; href=&quot;https:&#x2f;&#x2f;fonts.googleapis.com&quot;&gt;</mark>
-<mark>&lt;link rel=&quot;preconnect&quot; href=&quot;https:&#x2f;&#x2f;fonts.gstatic.com&quot; crossorigin&gt;</mark>
-<mark>&lt;link href=&quot;https:&#x2f;&#x2f;fonts.googleapis.com&#x2f;css2?family=Noto+Sans+JP:wght@500&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</mark>
 <mark>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;base.css&#039;|url }}&quot;&gt;</mark>
 &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;style.css&#039;|url }}&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;custom.css&#039;|url }}&quot;&gt;
-&lt;title&gt;{% block title %}Welcome{% endblock %} &mdash; test&lt;&#x2f;title&gt;
-</code></pre><h3>4. custom.cssへ追記</h3>
-<p><code>style.css</code>のフォント指定を上書きします。</p>
-<h4>assets/static/custom.css (追記)</h4>
-<pre><code class="lang-css">/* override font */
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &#039;&#x2f;static&#x2f;override.css&#039;|url }}&quot;&gt;
+</code></pre><h3>2. フォントスタイルの上書き</h3>
+<p><code>style.css</code>にあるフォントスタイルを<code>override.css</code>で上書きします。</p>
+<p>なおhtmlのline-heighを1.75と広く取った影響で、投稿日時(class meta)の上下スペースが間延びしました。ここで調整します。</p>
+<h4>assets/static/override.css (追記)</h4>
+<pre><code class="lang-css">/* override fonts */
 body {
   font-family: var(--font-body);
 }
@@ -156,21 +226,13 @@ header h1 {
 header nav ul {
   font-family: var(--font-verdana);
 }
+
+/* layout adjustment */
+.meta {
+  line-height: 1;
+}
 </code></pre>
-<h3>5. ヘッダータイトルの書き換え</h3>
-<p>ヘッダーのタイトルをlektor-demoから「日本語のTitle」へ書き換えます。</p>
-<p>この際、タイトルはコンフィグ・ファイルに記述したものを利用するように変更します。</p>
-<h4>lektor-demo.lektorconfig (編集)</h4>
-<pre><code style="language-none">[project]
-<del>name = lektor-demo</del>
-<mark>name = 日本語のタイトル</mark>
-</code></pre><h4>templates/layout.html (編集)</h4>
-<pre><code class="language-markup">&lt;body&gt;
-  &lt;header&gt;
-    <del>&lt;h1&gt;lektor-demo&lt;&#x2f;h1&gt;</del>
-    <mark>&lt;h1&gt;{{ config.PROJECT.name }}&lt;&#x2f;h1&gt;</mark>
-    &lt;nav&gt;
-</code></pre><h3>6. 記事「日本語表示の確認」の作成</h3>
+<h3>3. 記事「日本語表示の確認」の作成</h3>
 <p>日本語の表示を確認するため、ブログに新規記事を作成します。タイトルを「日本語表示の確認」とし、記事は下記の内容をコピーして貼り付けます。（文章はダミー文です。）</p>
 <h4>title</h4>
 <pre><code class="lang-text">日本語表示の確認
@@ -184,11 +246,8 @@ header nav ul {
 #### h4. 見出しTitle4
 ##### h5. 見出しTitle5
 ###### h6. 見出しTitle6
-
-### h3 概複素構造 J 
-M はシンプレクティック形式 ω を持ち、リーマン計量 g を持ち、概複素構造 J を持っているとする。ω と g 非退化であるから、それぞれはバンドル同型 TM → T*M を引き起こし、第一の写像を φω と書くと、内積 φω(u) = iuω = ω(u, •) により与えられる。
 </code></pre>
-<p>ブラウザで日本語表示を確認します。</p>
+<p>日本語の表示を確認します。</p>
 <p><img src="./japanese.jpg" style="max-width:380px;" /></p>
 
   
@@ -197,7 +256,7 @@ M はシンプレクティック形式 ω を持ち、リーマン計量 g を�
   
   <div class="siblings">
     
-        <a href="../quickstart-responsive/">Previous Post</a>
+        <a href="../quickstart-config/">Previous Post</a>
     
     
         <a href="../quickstart-html-elements/">Next Post</a>
@@ -207,6 +266,8 @@ M はシンプレクティック形式 ω を持ち、リーマン計量 g を�
 
   </div>
   <footer>
-    &copy; Copyright 2023 by Aki.
+    &copy; Copyright 2023 by Aki. 
+<a style="margin-left:0.25rem;" href="#">Tiwtter</a>
   </footer>
+  <script src="../../static/js/prism.js" defer></script>
 </body>

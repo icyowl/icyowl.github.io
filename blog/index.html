@@ -1,20 +1,48 @@
 <!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../static/base.css">
+
 <link rel="stylesheet" href="../static/style.css">
+
+<link rel="stylesheet" href="../static/override.css">
+
 <link rel="stylesheet" href="../static/prism.css">
+
 <link rel="stylesheet" href="../static/custom.css">
-<title>Blog — lektor-blog</title>
+
+<link rel="stylesheet" href="../static/navbar.css">
+
+<link rel="stylesheet" href="../static/header.css">
+
+<link rel="stylesheet" href="../static/welcome.css">
+
+<title>Welcome — lektor-memory</title>
 <body>
   <header>
-    <h1>朗読者の記憶</h1>
+    <div class="navbar-area">
+  <div class="navbar">
+    <div class="logo">Icyowl</div>
     <nav>
-      <ul class="nav navbar-nav">
-        <li><a href="../">Welcome</a></li>
+      <ul id="menu" class="nav navbar-nav">
+        <li><a href="../">Home</a></li>
         
           <li class="active"><a href="./">Blog</a></li>
         
@@ -24,14 +52,56 @@
         
       </ul>
     </nav>
+  
+    <svg id="burger-icon" class="w-6 h-6 burger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+      <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+    </svg>
+    
+  </div>
+</div>
+
+<script>
+  var target = document.querySelector(".burger")
+  var icon = document.getElementById("burger-icon");
+  var menu = document.getElementById("menu");
+
+  target.addEventListener("click", () => {
+    icon.classList.toggle("fade");
+    menu.classList.toggle("navbar-nav");
+    // console.log(icon);
+    // console.log(menu);
+
+  })
+</script>
+    <div class="header-image-area">
+  <div class="header-text">
+    <h1>朗読者の記憶</h1>
+    <h2>Static Site CMS Lektor</h2>
+  </div>
+</div>
+
+
+
+
+
+
   </header>
   <div class="page">
-    <script src="../static/js/prism.js" defer></script>
-    <!-- 
-      ><a href="/">Home</a>
     
-      ><a href="/blog">blog</a>
-     -->
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/">Home</a>
+  </div>
+
+  <div class="breadcrumbs">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+    </svg>
+    <a href="/blog">blog</a>
+  </div>
+
     
   
     
@@ -45,49 +115,19 @@
       
         <li>tag:</li>
       
-      <li>
+      
+        <li>
           <a href="tag/lektor/">lektor</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-25
+      on 2023-01-25 15:00:00
     </span>
   </div>
   
     <p>Lektorはドイツ語で、出版社における編集者や（特に外国語の）大学講師を指します。静的サイトジェネレータのLektorは、編集者という意味で捉えてよいと思います。</p>
-
-  
-  </div>
-
-  
-    
-  <div class="blog-post">
-  
-    <h2><a href="quickstart-summary/">Step by Step のまとめ</a></h2>
-  
-  <div class="meta">
-    <ul> 
-    
-      
-        <li>tags:</li>
-      
-      <li>
-          <a href="tag/lektor/">lektor</a>
-        </li>
-      <li>
-          <a href="tag/quickstart/">quickstart</a>
-        </li>
-      
-      </ul>
-    
-    <span>
-      on 23-01-24
-    </span>
-  </div>
-  
-    <p>Lektorでサイトを作った際の備忘録をStep by Step Guide風に書き改めました。文章化してコードや画像を貼ると10倍くらい量になりしたが、慣れている人なら成果物に至るまで1時間もかからない程度の内容です。</p>
 
   
   </div>
@@ -104,17 +144,19 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-23
+      on 2023-01-23 11:00:00
     </span>
   </div>
   
@@ -135,17 +177,19 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-22
+      on 2023-01-22 11:00:00
     </span>
   </div>
   
@@ -166,17 +210,19 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-22
+      on 2023-01-22 00:00:00
     </span>
   </div>
   
@@ -197,17 +243,19 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-21
+      on 2023-01-21 12:00:00
     </span>
   </div>
   
@@ -220,7 +268,7 @@
     
   <div class="blog-post">
   
-    <h2><a href="quickstart-tags/">タグ機能のプラグイン</a></h2>
+    <h2><a href="quickstart-tags/">タグ機能の追加</a></h2>
   
   <div class="meta">
     <ul> 
@@ -228,17 +276,19 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-21
+      on 2023-01-21 11:00:00
     </span>
   </div>
   
@@ -259,17 +309,19 @@
       
         <li>tags:</li>
       
-      <li>
+      
+        <li>
           <a href="tag/lektor/">lektor</a>
         </li>
-      <li>
+      
+        <li>
           <a href="tag/quickstart/">quickstart</a>
         </li>
       
       </ul>
     
     <span>
-      on 23-01-21
+      on 2023-01-21 10:00:00
     </span>
   </div>
   
@@ -279,21 +331,132 @@
   </div>
 
   
+    
+  <div class="blog-post">
+  
+    <h2><a href="quickstart-steps1/">Step by Step 1 まとめ</a></h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      
+        <li>
+          <a href="tag/lektor/">lektor</a>
+        </li>
+      
+        <li>
+          <a href="tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 2023-01-20 23:00:00
+    </span>
+  </div>
+  
+    <p>Step by Stepの1の成果物は、日本語が使える最低限のブログサイトです。</p>
+
+  
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="quickstart-color-themes/">カラーテーマ</a></h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      
+        <li>
+          <a href="tag/lektor/">lektor</a>
+        </li>
+      
+        <li>
+          <a href="tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 2023-01-20 01:00:00
+    </span>
+  </div>
+  
+    <p>基本的なスタイルやレイアウトを決定したので、カラーの配色を決めて、いくつかテーマを作ることにします。</p>
+
+  
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="quickstart-excerpt/">記事抜粋のプラグイン</a></h2>
+  
+  <div class="meta">
+    <ul> 
+    
+      
+        <li>tags:</li>
+      
+      
+        <li>
+          <a href="tag/lektor/">lektor</a>
+        </li>
+      
+        <li>
+          <a href="tag/quickstart/">quickstart</a>
+        </li>
+      
+      </ul>
+    
+    <span>
+      on 2023-01-19 00:00:00
+    </span>
+  </div>
+  
+    <p>Quickstartの初期状態では、記事の一覧が表示されるページに、記事の全てのテキストが表示されます。たくさん記事を書いていくと見辛くなりますので、記事の抜粋だけ表示する機能を追加します。</p>
+
+  
+  </div>
+
+  
 
   
   <div class="pagination">
     
-      <a href="page/2/">&laquo; Previous</a>
+      <span class="disabled">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+          <path fill-rule="evenodd" d="M15.79 14.77a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L11.832 10l3.938 3.71a.75.75 0 01.02 1.06zm-6 0a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L5.832 10l3.938 3.71a.75.75 0 01.02 1.06z" clip-rule="evenodd" />
+        </svg>        
+        Previous</span>
     
-    | 1 |
+    | <span>1</span> |
     
-      <span class="disabled">Next &raquo;</span>
+      <a href="page/2/">
+        Next 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+          <path fill-rule="evenodd" d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          <path fill-rule="evenodd" d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+        </svg>        
+      </a>
     
   </div>
 
 
   </div>
   <footer>
-    &copy; Copyright 2023 by Aki.
+    &copy; Copyright 2023 by Aki. 
+<a style="margin-left:0.25rem;" href="#">Tiwtter</a>
   </footer>
+  <script src="../static/js/prism.js" defer></script>
 </body>
