@@ -100,9 +100,9 @@ header nav ul {
 }
 
 /* layout adjustment */
-.meta {
+/* .meta {
   line-height: 1;
-}
+} */
 
 /* responsive */
 header, footer, div.page {
@@ -111,19 +111,24 @@ header, footer, div.page {
 }
 
 @media screen and (max-width: 576px) {
+  html {
+    font-size: 98%;
+    line-height: 1.6;
+  }
   body {
     margin: 2px;
   }
   header, footer, div.page {
     padding: 1rem;
   }
-  footer {
-    background: #fff;
+  li {
+    line-height: 1.6;
   }
+
 }
 
 
-header h1 {
+/* header h1 {
   font-size: calc(1.325rem + 0.9vw);
 }
 @media (min-width: 1200px) {
@@ -139,4 +144,4 @@ div.page h2 {
   div.page h2 {
     font-size: 1.375rem;
   }
-}
+} */
