@@ -33,7 +33,7 @@
   background: none;
   display: none;
   fill: var(--hovercolor);
-  margin-right: 3rem;
+  /* margin-right: 3rem; */
 }
 
 @media screen and (max-width: 576px) {
