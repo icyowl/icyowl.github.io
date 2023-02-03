@@ -1,24 +1,26 @@
-.welcome-page a {
+
+/* top page */
+.welcome a {
   color: var(--gray-9);
 }
 
-.welcome-page a:hover {
+.welcome a:hover {
   color: var(--gray-7);
 }
 
-.welcome-page ol {
+.welcome ol {
   list-style-type: upper-roman;
 }
 
-.welcome-page ol ol {
+.welcome ol ol {
   list-style-type: decimal;
 }
 
-.welcome-page ul {
+.welcome ul {
   list-style-type: none;
   padding: 0 0 0 1rem;
 }
 
-.welcome-page ul li {
+.welcome ul li {
   margin: .5rem 0;
 }

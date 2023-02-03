@@ -17,8 +17,8 @@
 
 .navbar-logo .logo {
   font-family: var(--font-verdana);
-  font-weight: 500;
-  color: var(--gray-8);
+  font-weight: bold;
+  color: var(--gray-6);
   margin-left: 1rem;
   line-height: 3rem;
 }
@@ -72,6 +72,7 @@
   .navbar-area nav ul li {
     display: list-item;
     margin: 0;
+    padding: .5rem 0;
   }
 
   .navbar-area nav ul li a {

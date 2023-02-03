@@ -99,10 +99,9 @@ header nav ul {
   font-family: var(--font-verdana);
 }
 
-/* layout adjustment */
-/* .meta {
-  line-height: 1;
-} */
+div.page {
+  padding-top: 1rem;
+}
 
 /* responsive */
 header, footer, div.page {
